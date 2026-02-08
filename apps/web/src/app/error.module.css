@@ -1,0 +1,89 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.error {
+  text-align: center;
+  padding: 60px 40px;
+  background: var(--foreground, #ffffff);
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  max-width: 600px;
+}
+
+.error h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--text-primary, #000);
+}
+
+.error p {
+  font-size: 16px;
+  color: var(--text-secondary, #666);
+  margin-bottom: 32px;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.retryButton,
+.homeLink {
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.retryButton {
+  background: var(--text-primary, #000);
+  color: var(--foreground, #ffffff);
+}
+
+.homeLink {
+  background: transparent;
+  color: var(--text-primary, #000);
+  border: 1px solid #e0e0e0;
+}
+
+.retryButton:hover,
+.homeLink:hover {
+  opacity: 0.8;
+}
+
+@media (prefers-color-scheme: dark) {
+  .error {
+    background: #1a1a1a;
+    border-color: #333;
+  }
+
+  .error h1 {
+    color: #ededed;
+  }
+
+  .error p {
+    color: #999;
+  }
+
+  .retryButton {
+    background: #ededed;
+    color: #000;
+  }
+
+  .homeLink {
+    color: #ededed;
+    border-color: #333;
+  }
+}
