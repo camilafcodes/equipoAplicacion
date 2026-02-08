@@ -5,33 +5,33 @@
 ### Core API
 - [x] Initialize Express app with TypeScript
 - [x] Set up `/health` endpoint returning `HealthResponse`
-- [ ] Implement `GET /api/news` endpoint (list with pagination)
-- [ ] Implement `GET /api/news/:id` endpoint (single article)
-- [ ] Add input validation middleware
-- [ ] Add error handling middleware
-- [ ] Configure CORS properly
+- [x] Implement `GET /api/news` endpoint (list with pagination)
+- [x] Implement `GET /api/news/:id` endpoint (single article)
+- [x] Add input validation middleware
+- [x] Add error handling middleware
+- [x] Configure CORS properly
 
 ### News Ingestion
-- [ ] Create `sources/` directory for pluggable news sources
-- [ ] Implement RSS/Atom parser utility
-- [ ] Create example source module (e.g., `sources/example-rss.ts`)
-- [ ] Implement in-memory cache with TTL (15 min)
-- [ ] Add cache refresh logic
-- [ ] Generate article IDs from source + timestamp
+- [x] Create `sources/` directory for pluggable news sources
+- [x] Implement RSS/Atom parser utility
+- [x] Create example source module (e.g., `sources/example-rss.ts`)
+- [x] Implement in-memory cache with TTL (15 min)
+- [x] Add cache refresh logic
+- [x] Generate article IDs from source + timestamp
 
 ### Data & Utilities
-- [ ] Create NewsService class for business logic
-- [ ] Implement pagination logic
-- [ ] Add logging utility (non-sensitive)
-- [ ] Create `.env.example` with all required variables
+- [x] Create NewsService class for business logic
+- [x] Implement pagination logic
+- [x] Add logging utility (non-sensitive)
+- [x] Create `.env.example` with all required variables
 
 ### Testing & Quality
-- [ ] Run `npm run lint` and fix issues
-- [ ] Run `npm run build` and verify success
-- [ ] Manual test: health endpoint
-- [ ] Manual test: list news endpoint
-- [ ] Manual test: single article endpoint
-- [ ] Verify error responses match contract
+- [x] Run `npm run lint` and fix issues
+- [x] Run `npm run build` and verify success
+- [x] Manual test: health endpoint
+- [x] Manual test: list news endpoint
+- [x] Manual test: single article endpoint
+- [x] Verify error responses match contract
 
 ---
 

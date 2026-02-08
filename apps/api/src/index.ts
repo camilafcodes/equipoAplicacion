@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { HealthResponse } from '@app/shared';
+import newsRoutes from './routes/news';
+import { errorHandler } from './middleware/errorHandler';
 
 dotenv.config();
 
@@ -18,6 +20,10 @@ app.get('/health', (_req, res) => {
   };
   res.json(response);
 });
+
+app.use('/api', newsRoutes);
+
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`API server running on port ${PORT}`);
