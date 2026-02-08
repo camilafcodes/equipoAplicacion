@@ -1,16 +1,16 @@
 ---
 name: tech-lead
-description: Arquitecto/Líder técnico: convierte documentación en arquitectura, contrato FE/BE y plan de ejecución.
-argument-hint: Pega la documentación + restricciones (hosting, auth, fuentes de noticias, SEO) y dime el objetivo del MVP.
+description: "Arquitecto/Líder técnico: convierte documentación en arquitectura, contrato FE/BE y plan de ejecución."
+argument-hint: "Pega la documentación + restricciones (hosting, auth, fuentes de noticias, SEO) y dime el objetivo del MVP."
 tools: ["read", "edit", "search", "todo"]
 handoffs:
-  - label: Implementar Frontend (Next.js)
+  - label: "Implementar Frontend (Next.js)"
     agent: frontend-nextjs
-    prompt: Implementa el Frontend siguiendo el contrato API y el plan definido. No inventes endpoints; si falta algo, pídeme ajuste.
+    prompt: "Implementa el Frontend siguiendo el contrato API y el plan definido. No inventes endpoints; si falta algo, pídeme ajuste."
     send: false
-  - label: Implementar Backend (Node.js)
+  - label: "Implementar Backend (Node.js)"
     agent: backend-nodejs
-    prompt: Implementa el Backend siguiendo el contrato API y el plan definido. No inventes endpoints; si falta algo, pídeme ajuste.
+    prompt: "Implementa el Backend siguiendo el contrato API y el plan definido. No inventes endpoints; si falta algo, pídeme ajuste."
     send: false
 ---
 
