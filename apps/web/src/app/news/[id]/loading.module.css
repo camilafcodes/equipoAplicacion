@@ -1,0 +1,111 @@
+.container {
+  min-height: 100vh;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.backLinkSkeleton {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  height: 36px;
+  width: 120px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 6px;
+}
+
+.main {
+  padding-bottom: 60px;
+}
+
+.imageSkeleton {
+  width: 100%;
+  height: 400px;
+  margin-bottom: 32px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 8px;
+}
+
+.headerSkeleton {
+  margin-bottom: 32px;
+}
+
+.titleLineSkeleton {
+  height: 36px;
+  margin-bottom: 12px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 6px;
+}
+
+.titleLineSkeleton:last-of-type {
+  width: 70%;
+  margin-bottom: 16px;
+}
+
+.metaSkeleton {
+  height: 14px;
+  width: 250px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+.contentSkeleton {
+  margin-top: 24px;
+}
+
+.summarySkeleton {
+  height: 18px;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+.bodySkeleton {
+  height: 16px;
+  margin-bottom: 12px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+.bodySkeleton:last-of-type {
+  width: 60%;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .imageSkeleton {
+    height: 250px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .backLinkSkeleton,
+  .imageSkeleton,
+  .titleLineSkeleton,
+  .metaSkeleton,
+  .summarySkeleton,
+  .bodySkeleton {
+    background: linear-gradient(90deg, #2a2a2a 25%, #333 50%, #2a2a2a 75%);
+    background-size: 200% 100%;
+  }
+}

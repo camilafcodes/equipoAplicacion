@@ -38,38 +38,38 @@
 ## Frontend Tasks (apps/web)
 
 ### Pages & Routing
-- [ ] Create `/app/page.tsx` (home/list page)
-- [ ] Create `/app/news/[id]/page.tsx` (detail page)
-- [ ] Add metadata (title, description) to pages
-- [ ] Implement loading states (`loading.tsx`)
-- [ ] Implement error states (`error.tsx`)
+- [x] Create `/app/page.tsx` (home/list page)
+- [x] Create `/app/news/[id]/page.tsx` (detail page)
+- [x] Add metadata (title, description) to pages
+- [x] Implement loading states (`loading.tsx`)
+- [x] Implement error states (`error.tsx`)
 
 ### Components
-- [ ] Create `NewsCard` component for list view
-- [ ] Create `NewsDetail` component for detail view
-- [ ] Create `Pagination` component
-- [ ] Add basic CSS modules for styling
+- [x] Create `NewsCard` component for list view
+- [x] Create `NewsDetail` component for detail view
+- [x] Create `Pagination` component
+- [x] Add basic CSS modules for styling
 
 ### Data Fetching
-- [ ] Create API client utility (`lib/api.ts`)
-- [ ] Implement fetch for news list with pagination
-- [ ] Implement fetch for single article
-- [ ] Handle error cases (network, 404, 500)
-- [ ] Handle empty state (no articles)
+- [x] Create API client utility (`lib/api.ts`)
+- [x] Implement fetch for news list with pagination
+- [x] Implement fetch for single article
+- [x] Handle error cases (network, 404, 500)
+- [x] Handle empty state (no articles)
 
 ### Configuration
-- [ ] Add API base URL to environment variables
-- [ ] Create `.env.local.example`
-- [ ] Update `next.config.js` if needed
+- [x] Add API base URL to environment variables
+- [x] Create `.env.local.example`
+- [x] Update `next.config.js` if needed
 
 ### Testing & Quality
-- [ ] Run `npm run lint` and fix issues
-- [ ] Run `npm run build` and verify success
-- [ ] Manual test: list page renders
-- [ ] Manual test: pagination works
-- [ ] Manual test: detail page renders
-- [ ] Manual test: error states work
-- [ ] Manual test: loading states work
+- [x] Run `npm run lint` and fix issues
+- [x] Run `npm run build` and verify success
+- [x] Manual test: list page renders
+- [x] Manual test: pagination works
+- [x] Manual test: detail page renders
+- [x] Manual test: error states work
+- [x] Manual test: loading states work
 
 ---
 

@@ -1,65 +1,92 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { Metadata } from 'next';
+import { fetchNewsList } from '@/lib/api';
+import NewsCard from '@/components/NewsCard';
+import Pagination from '@/components/Pagination';
+import styles from './page.module.css';
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: 'Latest News | News Web MVP',
+  description: 'Stay updated with the latest news from around the web',
+};
+
+interface HomeProps {
+  searchParams: Promise<{ page?: string }>;
+}
+
+export default async function Home({ searchParams }: HomeProps) {
+  const params = await searchParams;
+  const currentPage = parseInt(params.page || '1', 10);
+  const pageSize = 10;
+
+  let newsData;
+  let error;
+
+  try {
+    newsData = await fetchNewsList(currentPage, pageSize);
+  } catch (e) {
+    error = e instanceof Error ? e.message : 'Failed to fetch news';
+  }
+
+  if (error || !newsData) {
+    return (
+      <div className={styles.container}>
+        <header className={styles.header}>
+          <h1>Latest News</h1>
+        </header>
+        <main className={styles.main}>
+          <div className={styles.error}>
+            <p>⚠️ {error || 'Failed to load news'}</p>
+            <p className={styles.errorHint}>
+              Make sure the API server is running at{' '}
+              {process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'}
+            </p>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
+  const totalPages = Math.ceil(newsData.total / newsData.pageSize);
+
+  if (newsData.articles.length === 0) {
+    return (
+      <div className={styles.container}>
+        <header className={styles.header}>
+          <h1>Latest News</h1>
+        </header>
+        <main className={styles.main}>
+          <div className={styles.empty}>
+            <p>📰 No news articles available at the moment</p>
+            <p className={styles.emptyHint}>Check back later for updates</p>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
   return (
-    <div className={styles.page}>
+    <div className={styles.container}>
+      <header className={styles.header}>
+        <h1>Latest News</h1>
+        <p className={styles.subtitle}>
+          Showing {newsData.articles.length} of {newsData.total} articles
+        </p>
+      </header>
+
       <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+        <div className={styles.grid}>
+          {newsData.articles.map((article) => (
+            <NewsCard key={article.id} article={article} />
+          ))}
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+
+        {totalPages > 1 && (
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            baseUrl="/"
+          />
+        )}
       </main>
     </div>
   );
