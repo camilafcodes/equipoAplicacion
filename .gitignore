@@ -33,3 +33,5 @@ coverage/
 # Misc
 *.log
 .cache/
+
+package-lock.json
