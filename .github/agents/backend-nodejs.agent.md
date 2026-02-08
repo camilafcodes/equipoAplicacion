@@ -1,7 +1,7 @@
 ---
 name: backend-nodejs
-description: Senior Backend: implementa API en Node.js/TypeScript (validación, estructura, errores consistentes) según el contrato.
-argument-hint: Pega el contrato API y di si hay DB, cache, cron, o scraping de fuentes externas.
+description: "Senior Backend en Node.js/TypeScript: implementa API con validación y errores consistentes según el contrato."
+argument-hint: "Pega el contrato API y dime si hay DB/cache/cron/fuentes externas."
 tools: ["read", "edit", "search", "execute", "todo"]
 ---
 
