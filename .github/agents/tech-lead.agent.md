@@ -2,7 +2,7 @@
 name: tech-lead
 description: "Arquitecto/Líder técnico: convierte documentación en arquitectura, contrato FE/BE y plan de ejecución."
 argument-hint: "Pega la documentación + restricciones (hosting, auth, fuentes de noticias, SEO) y dime el objetivo del MVP."
-tools: ["read", "edit", "search", "todo"]
+tools: ["read", "edit", "search", "execute", "todo"]
 handoffs:
   - label: "Implementar Frontend (Next.js)"
     agent: frontend-nextjs
@@ -13,6 +13,23 @@ handoffs:
     prompt: "Implementa el Backend siguiendo el contrato API y el plan definido. No inventes endpoints; si falta algo, pídeme ajuste."
     send: false
 ---
+
+## Default workflow (ALWAYS)
+When a task starts, do this in order:
+
+1) Inspect repository structure.
+2) If the monorepo scaffold is missing, bootstrap it FIRST following the repo instructions in `.github/copilot-instructions.md`:
+   - apps/web (Next.js TS, ESLint, App Router, src dir, no Tailwind)
+   - apps/api (Node.js + Express + TypeScript) with GET /health returning HealthResponse from @app/shared
+   - packages/shared (types-only declarations)
+   - docs/ placeholders (architecture.md, api-contract.md, tasks.md)
+   - root package.json with npm workspaces and dev/build/lint/test scripts using concurrently
+   - root tsconfig.base.json
+   - root README with run instructions
+3) After bootstrap, generate /docs/architecture.md, /docs/api-contract.md, /docs/tasks.md based on provided product documentation.
+4) Then implement (or delegate) FE and BE strictly according to /docs/api-contract.md.
+
+If the scaffold already exists, skip step 2 and start at step 3.
 
 # Rol: Tech Lead / Arquitecto
 
