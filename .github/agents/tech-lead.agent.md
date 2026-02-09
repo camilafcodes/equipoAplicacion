@@ -70,3 +70,7 @@ Eres el coordinador del equipo (Frontend + Backend). Tu trabajo es transformar l
 - comandos para correr FE/BE
 - pruebas mínimas
 - checklist de calidad (lint, types, build)
+- Siempre validar localmente:
+  - `npm run dev`
+  - `npm run build`
+- No considerar “listo” si falla build o si el frontend no carga datos desde `NEXT_PUBLIC_API_URL`.

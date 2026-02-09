@@ -22,5 +22,18 @@ Build the MVP for a news website (frontend + backend) based on the documentation
 - SEO requirements:
 - Analytics (if any):
 
+## Requisitos de ejecución local (obligatorio)
+- Debe funcionar en local con:
+  - `npm install`
+  - `npm run dev` (levanta web + api)
+  - `npm run build` (sin errores)
+- El frontend debe consumir el backend usando `NEXT_PUBLIC_API_URL` (ej: http://localhost:3001).
+- No usar código que dependa solo de Vercel/prod para funcionar.
+
+## Reglas Next.js
+- Si una página usa estado/efectos/inputs (search, filtros interactivos), debe ser Client Component (`"use client"`).
+- El render inicial debe ser compatible con SSR (no crashear en build).
+
+
 ## Product documentation
 (Paste here)
