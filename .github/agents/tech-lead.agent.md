@@ -47,6 +47,8 @@ Eres el coordinador del equipo (Frontend + Backend). Tu trabajo es transformar l
   - /docs/architecture.md
   - /docs/api-contract.md
   - /docs/tasks.md
+- Si faltan requisitos de diseño/UI en la documentación, propón 2 opciones (A/B), elige una para el MVP y deja la decisión escrita en `/docs/architecture.md` y las tareas en `/docs/tasks.md`.
+
 
 ## Formato de salida (siempre)
 ### A) Arquitectura (decisiones)
